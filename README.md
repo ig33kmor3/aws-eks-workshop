@@ -23,11 +23,12 @@ Execute the following:
 
 ## Containerize Tomcat Web Application - Lab 3
 
-Securely, containerize a Java Spring Boot MVC application with Tomcat Servlet for deployment into the cluster
+Securely containerize a Java Spring Boot MVC application with Tomcat Servlet for deployment into the cluster. Push containerized application to AWS Elastic Container Registry (ECR).
 
 ## Deploying Application to EKS Cluster - Lab 4
 
-
+Deploy the above containerized application from ECR into the newly formed EKS cluster.
 
 ## Update Deployment on EKS Cluster - Lab 5
 
+Update the containerized application by adding additional airports then containerize a new version for upload to ECR.
