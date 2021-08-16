@@ -12,11 +12,6 @@ helm upgrade -i aws-load-balancer-controller eks/aws-load-balancer-controller \
   --set serviceAccount.name=aws-load-balancer-controller \
 printf "\n"
 
-echo "Verify AWS Load Balancer Deployment ..." && sleep 1
-kubectl logs -n kube-system deployments/aws-load-balancer-controller
-kubectl -n kube-system get deployments
-printf "\n"
-
 echo "Deploy Kubernetes Dashboard ..." && sleep 1
 export DASHBOARD_VERSION="v2.0.0"
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/${DASHBOARD_VERSION}/aio/deploy/recommended.yaml
