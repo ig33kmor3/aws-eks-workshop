@@ -29,6 +29,7 @@ done
 printf "\n"
 
 echo "Create EKS Cluster Configuration File - airports.yaml ..." && sleep 1
+. ~/.bash_profile
 cat << EOF > airports.yaml
 ---
 apiVersion: eksctl.io/v1alpha5
