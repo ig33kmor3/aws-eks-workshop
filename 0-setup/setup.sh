@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Setup SSH Key ..." && sleep 1
-ssh-keygen -N ""
+ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
 aws ec2 import-key-pair --key-name "eks-workshop" --public-key-material file://~/.ssh/id_rsa.pub
 printf "\n"
 
