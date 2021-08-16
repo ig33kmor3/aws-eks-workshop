@@ -16,6 +16,14 @@ chmod +x ./prepare-cluster.sh
 ./prepare-cluster.sh
 ```
 
+```bash
+kubectl logs -n kube-system deployments/aws-load-balancer-controller
+```
+
+```bash
+kubectl -n kube-system get deployments
+```
+
 The [prepare-cluster.sh](./prepare-cluster.sh) script accomplishes the following:
 
 ```bash
@@ -29,11 +37,6 @@ helm upgrade -i aws-load-balancer-controller eks/aws-load-balancer-controller \
   --set clusterName=${CLUSTER_NAME} \
   --set serviceAccount.create=false \
   --set serviceAccount.name=aws-load-balancer-controller \
-printf "\n"
-
-echo "Verify AWS Load Balancer Deployment ..." && sleep 1
-kubectl logs -n kube-system deployments/aws-load-balancer-controller
-kubectl -n kube-system get deployments
 printf "\n"
 
 echo "Deploy Kubernetes Dashboard ..." && sleep 1
