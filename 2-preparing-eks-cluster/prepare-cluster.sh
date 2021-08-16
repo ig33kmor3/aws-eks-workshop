@@ -1,24 +1,5 @@
-# Preparing EKS Cluser for Applications - Lab 2
+#!/bin/bash
 
-* Verify AWS Load Balancer IAM roles for service account is configured
-* Deploy AWS Load Balancer Controller for external connectivity
-* Deploy official Kubernetes dashboard
-
-## Deployment
-
-Execute the [prepare-cluster.sh](./prepare-cluster.sh) script in your workspace:
-
-```bash
-chmod +x ./prepare-cluster.sh
-```
-
-```bash
-./prepare-cluster.sh
-```
-
-The [prepare-cluster.sh](./prepare-cluster.sh) script accomplishes the following:
-
-```bash
 CLUSTER_NAME="airports"
 
 echo "Install AWS Load Balancer Controller ..." && sleep 1
@@ -39,4 +20,3 @@ printf "\n"
 echo "Deploy Kubernetes Dashboard ..." && sleep 1
 export DASHBOARD_VERSION="v2.0.0"
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/${DASHBOARD_VERSION}/aio/deploy/recommended.yaml
-```
