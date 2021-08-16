@@ -1,30 +1,5 @@
-# Launching an EKS Cluster - Lab 1
+#!/bin/bash
 
-Prepare environment for deploying an EKS Cluster leveraging [eksctl](https://eksctl.io/).
-
-## Deployment
-
-Execute the [launch-setup.sh](./launch-setup.sh) script in your workspace:
-
-```bash
-chmod +x ./launch-setup.sh
-```
-
-```bash
-./launch-setup.sh
-```
-
-```bash
-eksctl create cluster -f airports.yaml
-```
-
-```bash
-kubectl get nodes
-```
-
-The [launch-setup.sh](./launch-setup.sh) script accomplishes the following:
-
-```bash
 echo "Install Eksctl for Creating Clusters ..." && sleep 1
 curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
 sudo mv -v /tmp/eksctl /usr/local/bin
@@ -116,5 +91,3 @@ iam:
     wellKnownPolicies:
       imageBuilder: true
 EOF
-```
-
