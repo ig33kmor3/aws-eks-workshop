@@ -3,7 +3,7 @@
 This workshop is designed to help users learn Kubernetes on AWS using EKS. To start, download project to working directory:
 
 ```bash
-git clone git@github.com:ig33kmor3/aws-eks-workshop.git
+git clone https://github.com/ig33kmor3/aws-eks-workshop.git
 ```
 
 ## [Project Setup - Lab 0](./0-setup)
