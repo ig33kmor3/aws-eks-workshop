@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Airport Data Locator</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <link rel="shortcut icon" type="image/png" href="../static/images/airplane.png" th:href="@{/images/airplane.png}"/>
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" href="../static/js/bootstrap.bundle.min.js" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<div class="container">
+    <!-- page header and image -->
+    <div class="row">
+        <div class="col">
+            <h1>Airport Data Locator <img src="../static/images/airplane.png" th:src="@{/images/airplane.png}"
+                                          alt="airplane"></h1>
+        </div>
+    </div>
+    <!-- table -->
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <thead>
+                    <!-- table headers -->
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Code</th>
+                        <th scope="col">Location</th>
+                        <th scope="col">Elevation (ft)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- table row -->
+                    <tr th:each="airport : ${airports}">
+                        <th scope="row" th:text="${airport.getId()}"></th>
+                        <td th:text="${airport.getName()}"></td>
+                        <td th:text="${airport.getCode()}"></td>
+                        <td th:text="${airport.getLocation()}"></td>
+                        <td th:text="${airport.getElevation()}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
