@@ -14,7 +14,7 @@ Prepare your Cloud9 Workspace to interact with AWS EKS by installing the require
 
 Deploy an EKS cluster using [eksctl](https://eksctl.io/).
 
-## [Preparing EKS Cluser for Applications - Lab 2](./2-preparing-eks-cluster )
+## [Preparing EKS Cluster for Applications - Lab 2](./2-preparing-eks-cluster )
 
 Execute the following:
 

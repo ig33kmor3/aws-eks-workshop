@@ -1,4 +1,4 @@
-# Preparing EKS Cluser for Applications - Lab 2
+# Preparing EKS Cluster for Applications - Lab 2
 
 * Verify AWS Load Balancer IAM roles for service account is configured
 * Deploy AWS Load Balancer Controller for external connectivity
