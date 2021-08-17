@@ -39,11 +39,11 @@ This lab prepares your workspace to interact with AWS EKS by installing the requ
     export AWS_REGION=$(curl -s 169.254.169.254/latest/dynamic/instance-identity/document | jq -r '.region') 
     echo "export ACCOUNT_ID=${ACCOUNT_ID}" >> ~/.bash_profile 
     echo "export AWS_REGION=${AWS_REGION}" >> ~/.bash_profile 
-    aws configure set default.region ${AWS_REGION} 
+    aws configure set default.region "${AWS_REGION}" 
     aws configure get default.region
     
     # Prepare for EC2 Role
-    rm -vf ${HOME}/.aws/credentials
+    rm -vf "${HOME}/.aws/credentials"
     ```
 
 ## Attach EC2 Role to Cloud9 Workspace

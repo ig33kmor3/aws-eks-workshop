@@ -36,7 +36,8 @@ This lab securely containerizes a Java Spring Boot MVC application with Tomcat S
     
     # Set ECR Repository Variable
     ECR_REPOSITORY_URI=$(aws ecr describe-repositories | jq -r .repositories[].repositoryUri | grep airports)
-    echo ${ECR_REPOSITORY_URI}
+    echo "export ECR_REPOSITORY_URI=${ECR_REPOSITORY_URI}" >> ~/.bash_profile
+    echo "${ECR_REPOSITORY_URI}"
     ```
 
 ## Containerize Web Application
@@ -44,7 +45,7 @@ This lab securely containerizes a Java Spring Boot MVC application with Tomcat S
 1. Navigate to the **airports-data** directory:
 
     ```bash
-    cd airport-data
+    cd airport-data/
     ```
 
 2. Build container image by running the following command in the root of this project folder:
@@ -56,17 +57,17 @@ This lab securely containerizes a Java Spring Boot MVC application with Tomcat S
 3. Re-tag container for upload to ECR:
 
     ```bash
-    docker tag airport-locator:1.0.0 ${ECR_REPOSITORY_URI}:1.0.0
+    docker tag airport-locator:1.0.0 "${ECR_REPOSITORY_URI}:1.0.0"
     ```
 
 4. Authenticate to ECR:
 
     ```bash
-    aws ecr get-login-password --region ${AWS_REGION} | docker login --username AWS --password-stdin ${ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com
+    aws ecr get-login-password --region "${AWS_REGION}" | docker login --username AWS --password-stdin "${ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com"
     ```
 
 5. Push airport-data web application to ECR:
 
     ```bash
-    docker push ${ECR_REPOSITORY_URI}:1.0.0
+    docker push "${ECR_REPOSITORY_URI}:1.0.0"
     ```

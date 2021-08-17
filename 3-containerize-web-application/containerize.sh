@@ -15,4 +15,5 @@ printf "\n"
 
 echo "Set ECR Repository Variable ..." && sleep 1
 ECR_REPOSITORY_URI=$(aws ecr describe-repositories | jq -r .repositories[].repositoryUri | grep airports)
-echo ${ECR_REPOSITORY_URI}
+echo "export ECR_REPOSITORY_URI=${ECR_REPOSITORY_URI}" >> ~/.bash_profile
+echo "${ECR_REPOSITORY_URI}"
