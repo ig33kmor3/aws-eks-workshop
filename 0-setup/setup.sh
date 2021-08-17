@@ -8,6 +8,9 @@ printf "\n"
 echo "Install Dependencies ..." && sleep 1
 sudo yum update -y
 sudo yum install -y jq gettext bash-completion moreutils
+curl -o aws-iam-authenticator https://amazon-eks.s3.us-west-2.amazonaws.com/1.21.2/2021-07-05/bin/linux/amd64/aws-iam-authenticator
+sudo mv -v aws-iam-authenticator /usr/local/bin/
+sudo chmod +x /usr/local/bin/aws-iam-authenticator
 printf "\n"
 
 echo "Set AWS Environment Variables ..." && sleep 1
