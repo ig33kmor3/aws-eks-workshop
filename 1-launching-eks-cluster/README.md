@@ -2,7 +2,7 @@
 
 Prepare environment for deploying an EKS Cluster leveraging [eksctl](https://eksctl.io/).
 
-## Deployment
+## Preparation
 
 Execute the [launch-setup.sh](./launch-setup.sh) script in your workspace:
 

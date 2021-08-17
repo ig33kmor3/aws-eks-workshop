@@ -4,7 +4,7 @@
 * Deploy AWS Load Balancer Controller for external connectivity
 * Deploy official Kubernetes dashboard
 
-## Deployment
+## Preparation
 
 Execute the [prepare-cluster.sh](./prepare-cluster.sh) script in your workspace:
 
@@ -46,32 +46,32 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/${DASHBO
 
 ## View Kubernetes Metrics Dashboard
 
-1. Establish proxy request to dashboard: 
+Establish proxy request to dashboard:
 
 ```bash
 kubectl proxy --port=8080 --address=0.0.0.0 --disable-filter=true &
 ```
 
-2. In your Cloud9 workspace, click **Tools / Preview / Preview Running Application**
+In your Cloud9 workspace, click **Tools / Preview / Preview Running Application**
 
-3. Append the following to URL:
+Append the following to URL:
 
 ```text
 /api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
 ```
 
-4. Pop Out screen larger for access:
+Pop Out screen larger for access:
 
 ![2-dashboard](./images/2-dashboard.png)
 
 ![1-dashboard](./images/1-dashboard.png)
 
-5. In a new terminal in Cloud9 workspace, request a token for dashboard and input into Dashboard:
+In a new terminal in Cloud9 workspace, request a token for dashboard and input into Dashboard:
 
 ```bash
 aws eks get-token --cluster-name airports | jq -r '.status.token'
 ```
 
-6. View Kubernetes Dashboard:
+View Kubernetes Dashboard:
 
 ![3-dashboard](./images/3-dashboard.png)

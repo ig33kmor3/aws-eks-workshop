@@ -7,7 +7,7 @@ into Kubernetes clusters. It leverages a Java Spring Boot MVC application with T
 
 ## Run Locally
 
-Build container image by running the following command in the root of this project folder: 
+Build container image by running the following command in the root of this project folder:
 
 ```bash
 docker build -t airport-locator:1.0.0 .
@@ -21,7 +21,7 @@ docker run --name airport-locator -p 8080:8080 -d airport-locator:1.0.0
 
 Navigate to URL in your web browser:
 
-```
+```text
 http://localhost:8080
 ```
 

@@ -2,7 +2,7 @@
 
 Prepare your workspace to interact with AWS EKS by installing the required utilities. This configuration assumes you're using AWS Cloud9.
 
-## Deployment
+## Preparation
 
 Execute the [setup.sh](./setup.sh) script on your workspace:
 
@@ -43,7 +43,7 @@ echo "Prepare for EC2 Role ..." && sleep 1
 rm -vf ${HOME}/.aws/credentials
 ```
 
-Attach EC2 Role to Cloud9 Workspace:
+## Attach EC2 Role to Cloud9 Workspace
 
 1. Disable Cloud9 Temporary Credentials ![role-1](./images/role-1.png)
 
