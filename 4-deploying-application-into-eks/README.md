@@ -1,0 +1,66 @@
+# Deploying Application to EKS Cluster - Lab 4
+
+This lab deploys the containerized application from ECR into the newly formed EKS cluster. This lab contains the following templates:
+
+1. [airports-deployment.yaml](./1-airports-deployment.yaml)
+2. [airports-service.yaml](./2-airports-service.yaml)
+3. [airports-ingress.yaml](./3-airports-ingress.yaml)
+
+## Deployment
+
+1. Verify you're in the correct working directory of Lab 4:
+
+    ```text
+    PROJECT_ROOT/4-deploying-application-into-eks/
+    ```
+   
+2. Add the Elastic Container Repository created in previous lab to the image field location (REPLACE_ME) in [airports-deployment.yaml](./1-airports-deployment.yaml) in text editor:
+
+    ```yaml
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: airports-data
+    spec:
+      replicas: 3
+      selector:
+        matchLabels:
+          app: airports-data
+      template:
+        metadata:
+          labels:
+            app: airports-data
+        spec:
+          containers:
+            - name: sso
+              image: REPLACE_ME
+              imagePullPolicy: Always
+              ports:
+                - containerPort: 8080
+                  protocol: TCP
+              resources:
+                requests:
+                  memory: "512Mi"
+                  cpu: "250m"
+                limits:
+                  memory: "1Gi"
+                  cpu: "1000m"
+    ```
+   
+3. Deploy [airports-deployment.yaml](./1-airports-deployment.yaml) deployment to EKS Cluster:
+
+    ```bash
+    kubectl apply -f 1-airports-deployment.yaml
+    ```
+
+4. Deploy [airports-service.yaml](./2-airports-service.yaml) service to EKS Cluster:
+
+    ```bash
+    kubectl apply -f 2-airports-service.yaml
+    ```
+
+5. Deploy [airports-ingress.yaml](./3-airports-ingress.yaml) Ingress to allow external connectivity to your newly deployed service in the EKS Cluster:
+
+    ```bash
+    kubectl apply -f 3-airports-ingress.yaml
+    ```
