@@ -2,24 +2,11 @@
     "rules": [
         {
             "rulePriority": 1,
-            "description": "Expires all images after the most recent 3",
+            "description": "Expires all images after the most recent 10",
             "selection": {
-                "tagStatus": "tagged",
+                "tagStatus": "any",
                 "countType": "imageCountMoreThan",
-                "countNumber": 1
-            },
-            "action": {
-                "type": "expire"
-            }
-        },
-        {
-            "rulePriority": 2,
-            "description": "Expire images older than 14 days",
-            "selection": {
-                "tagStatus": "untagged",
-                "countType": "sinceImagePushed",
-                "countUnit": "days",
-                "countNumber": 14
+                "countNumber": 10
             },
             "action": {
                 "type": "expire"
