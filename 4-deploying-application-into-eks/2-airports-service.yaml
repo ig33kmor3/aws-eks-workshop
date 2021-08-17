@@ -6,7 +6,7 @@ metadata:
 spec:
   type: NodePort
   selector:
-    app: airports
+    app: airports-data
   ports:
     -  protocol: TCP
        port: 8080

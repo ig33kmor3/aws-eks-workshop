@@ -13,7 +13,7 @@ spec:
         app: airports-data
     spec:
       containers:
-        - name: sso
+        - name: airports-data
           image: REPLACE_ME
           imagePullPolicy: Always
           ports:
