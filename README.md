@@ -34,4 +34,4 @@ Deploy the above containerized application from ECR into the newly formed EKS cl
 
 ## [Update Deployment on EKS Cluster - Lab 5](./5-update-application-deployment)
 
-Update the containerized application by adding additional airports then containerize a new version for upload to ECR.
+Update the containerized application by adding additional airports then containerizes a new version for upload to ECR.

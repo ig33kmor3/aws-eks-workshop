@@ -1,0 +1,11 @@
+.container div:nth-child(2) {
+    margin-top: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+img {
+    display: inline-block;
+}

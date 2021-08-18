@@ -15,7 +15,7 @@ This lab securely containerizes a Java Spring Boot MVC application with Tomcat S
     ```bash
     chmod +x ./containerize.sh
     ```
-    
+
     ```bash
     ./containerize.sh
     ```
