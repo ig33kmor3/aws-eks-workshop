@@ -1,6 +1,6 @@
 # Project Setup - Lab 0
 
-This lab prepares your workspace to interact with AWS EKS by installing the required utilities. This configuration assumes you're using AWS Cloud9 and the lab has already been cloned to your Cloud9 Workspace.
+This lab prepares your workspace to interact with AWS EKS by installing the required utilities. This configuration assumes you're using AWS Cloud9 and the lab has already been cloned to your Cloud9 Workspace per [here](../README.md).
 
 ## Preparation
 
