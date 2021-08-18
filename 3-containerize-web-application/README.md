@@ -1,6 +1,6 @@
 # Containerize Tomcat Web Application - Lab 3
 
-This lab securely containerizes a Java Spring Boot MVC application with Tomcat Servlet for deployment into the cluster. Push containerized application to AWS Elastic Container Registry (ECR).
+This lab securely containerizes a Java Spring Boot MVC application with Tomcat Servlet for deployment into the cluster. Then, pushes containerized application to AWS Elastic Container Registry (ECR).
 
 ## Preparation
 
