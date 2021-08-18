@@ -59,10 +59,10 @@ This lab deploys the containerized application from ECR into the newly formed EK
     kubectl apply -f 1-airports-deployment.yaml
     ```
 
-5. Validate deployment is healthy by viewing a total of 3 airport-data-* in Running status:
+5. Validate deployment is healthy by viewing a total of 3 airport-data-* in Running status with recent AGE:
 
     ```bash
-    kubectl get deployments.apps
+    kubectl get pods
     ```
 
 6. Deploy [airports-service.yaml](./2-airports-service.yaml) service to EKS Cluster:
