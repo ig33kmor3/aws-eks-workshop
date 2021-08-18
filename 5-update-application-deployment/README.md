@@ -25,7 +25,7 @@ This lab updates the containerized application by adding additional airports the
     airports.add(new Airport(5, "Denver International Airport", "KDEN", "Denver, CO", "5433"));
     ```
 
-3. Build container image by running the following command in the root of this project folder:
+3. Build container image by running the following command in the root of the airport-data folder - **PROJECT_ROOT/5-update-application-deployment/airport-data**:
 
     ```bash
     docker build -t airport-locator:2.0.0 .
