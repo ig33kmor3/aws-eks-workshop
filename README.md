@@ -6,7 +6,7 @@ This workshop is designed to help users learn Kubernetes on AWS using EKS. To st
 git clone https://github.com/ig33kmor3/aws-eks-workshop.git
 ```
 
-This gives users the ability to utilize some of the scripts locally and save time creating files from scratch. Each directory is an individual lab. 
+This gives users the ability to utilize some of the scripts locally and save time creating files from scratch. Each directory is an individual lab.
 
 ## [Project Setup - Lab 0](./0-setup)
 
