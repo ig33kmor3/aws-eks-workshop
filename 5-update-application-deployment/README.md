@@ -4,7 +4,7 @@ This lab updates the containerized application by adding additional airports the
 
 ## Preparation
 
-1. Verify you're in the correct working directory of Lab 3:
+1. Verify you're in the correct working directory of Lab 5:
 
     ```text
     PROJECT_ROOT/5-update-application-deployment/
