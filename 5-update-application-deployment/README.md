@@ -18,7 +18,7 @@ This lab updates the containerized application by adding additional airports the
     cd airport-data/
     ```
 
-2. Update the following file in the web application **src/main/java/com/airport/locator/controller/LocatorController.java** by adding two additional airport data:
+2. Update the following file in the web application **src/main/java/com/airport/locator/controller/LocatorController.java** by adding two additional airport data (make sure to inlcude semicolons):
 
     ```java
     airports.add(new Airport(4, "Dallas/Fort Worth International Airport", "KDFW", "Dallas-Fort, TX", "606"));
