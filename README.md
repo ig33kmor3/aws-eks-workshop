@@ -1,6 +1,6 @@
 # AWS Elastic Kubernetes Service (EKS) Workshop
 
-This workshop is designed to help users learn Kubernetes on AWS using EKS. To start, download the project to a working directory on Cloud9 Workspace:
+This workshop is designed to help users learn Kubernetes on AWS using EKS. To start, download the project to a working directory on AWS Cloud9 Workspace:
 
 ```bash
 git clone https://github.com/ig33kmor3/aws-eks-workshop.git
