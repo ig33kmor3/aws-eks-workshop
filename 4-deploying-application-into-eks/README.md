@@ -20,7 +20,7 @@ This lab deploys the containerized application from ECR into the newly formed EK
     echo "${ECR_REPOSITORY_URI}:1.0.0"
     ```
 
-3. Add the Elastic Container Repository image from Step 2 to the image field location (REPLACE_ME) in [airports-deployment.yaml](./1-airports-deployment.yaml) in text editor:
+3. Add the Elastic Container Repository image from Step 2 to the image field location (REPLACE_ME) in [1-airports-deployment.yaml](./1-airports-deployment.yaml) in text editor:
 
     ```yaml
     apiVersion: apps/v1
@@ -53,7 +53,7 @@ This lab deploys the containerized application from ECR into the newly formed EK
                   cpu: "1000m"
     ```
 
-4. Deploy [airports-deployment.yaml](./1-airports-deployment.yaml) deployment to EKS Cluster:
+4. Deploy [1-airports-deployment.yaml](./1-airports-deployment.yaml) deployment to EKS Cluster:
 
     ```bash
     kubectl apply -f 1-airports-deployment.yaml
@@ -65,13 +65,13 @@ This lab deploys the containerized application from ECR into the newly formed EK
     kubectl get pods
     ```
 
-6. Deploy [airports-service.yaml](./2-airports-service.yaml) service to EKS Cluster:
+6. Deploy [2-airports-service.yaml](./2-airports-service.yaml) service to EKS Cluster:
 
     ```bash
     kubectl apply -f 2-airports-service.yaml
     ```
 
-7. Deploy [airports-ingress.yaml](./3-airports-ingress.yaml) Ingress to allow external connectivity to your newly deployed service in the EKS Cluster:
+7. Deploy [3-airports-ingress.yaml](./3-airports-ingress.yaml) Ingress to allow external connectivity to your newly deployed service in the EKS Cluster:
 
     ```bash
     kubectl apply -f 3-airports-ingress.yaml

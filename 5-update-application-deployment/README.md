@@ -63,7 +63,7 @@ This lab updates the containerized application by adding additional airports the
     echo "${ECR_REPOSITORY_URI}:2.0.0"
     ```
 
-3. Add the Elastic Container Repository image from Step 2 to the image field location (REPLACE_ME) in [airports-deployment.yaml](./1-airports-deployment.yaml) in text editor:
+3. Add the Elastic Container Repository image from Step 2 to the image field location (REPLACE_ME) in [1-airports-deployment.yaml](./1-airports-deployment.yaml) in text editor:
 
     ```yaml
     apiVersion: apps/v1
@@ -96,7 +96,7 @@ This lab updates the containerized application by adding additional airports the
                   cpu: "1000m"
     ```
 
-4. Deploy [airports-deployment.yaml](./1-airports-deployment.yaml) deployment to EKS Cluster:
+4. Deploy [1-airports-deployment.yaml](./1-airports-deployment.yaml) deployment to EKS Cluster:
 
     ```bash
     kubectl apply -f 1-airports-deployment.yaml
