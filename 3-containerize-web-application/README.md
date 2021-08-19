@@ -35,7 +35,7 @@ This lab securely containerizes a Java Spring Boot MVC application with Tomcat S
         --lifecycle-policy-text "file://policy.json"
     
     # Set ECR Repository Variable
-    ECR_REPOSITORY_URI=$(aws ecr describe-repositories | jq -r .repositories[].repositoryUri | grep airports)
+    ECR_REPOSITORY_URI=$(aws ecr describe-repositories | jq -r .repositories[].repositoryUri | grep -i airports)
     echo "export ECR_REPOSITORY_URI=${ECR_REPOSITORY_URI}" >> ~/.bash_profile
     echo "${ECR_REPOSITORY_URI}"
     ```

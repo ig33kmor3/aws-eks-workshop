@@ -15,21 +15,21 @@ This lab prepares environment for deploying an EKS Cluster leveraging [eksctl](h
     ```bash
     chmod +x ./launch-setup.sh
     ```
-    
+
     ```bash
     ./launch-setup.sh
     ```
-    
+
     ```bash
     eksctl create cluster -f airports.yaml
     ```
-    
+
     ```bash
     kubectl get nodes
     ```
 
     The [launch-setup.sh](./launch-setup.sh) script accomplishes the following:
-    
+
     ```bash
     # Install Eksctl for Creating Clusters
     curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp

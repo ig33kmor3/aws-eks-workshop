@@ -19,21 +19,21 @@ This lab executes the following:
     ```bash
     chmod +x ./prepare-cluster.sh
     ```
-    
+
     ```bash
     ./prepare-cluster.sh
     ```
-    
+
     ```bash
     kubectl logs -n kube-system deployments/aws-load-balancer-controller
     ```
-    
+
     ```bash
     kubectl -n kube-system get deployments
     ```
-    
+
     The [prepare-cluster.sh](./prepare-cluster.sh) script accomplishes the following:
-    
+
     ```bash
     CLUSTER_NAME="airports"
     
@@ -70,7 +70,7 @@ This lab executes the following:
 4. Pop Out screen larger for access:
 
     ![2-dashboard](./images/2-dashboard.png)
-    
+
     ![1-dashboard](./images/1-dashboard.png)
 
 5. In a new terminal in Cloud9 workspace, request a token for dashboard and input into Dashboard:
