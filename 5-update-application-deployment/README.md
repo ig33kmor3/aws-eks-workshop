@@ -15,7 +15,7 @@ This lab updates the containerized application by adding additional airports the
 1. Navigate to the **airports-data** directory:
 
     ```bash
-    cd airport-data/
+    cd aws-eks-workshop/5-update-application-deployment/airport-data/
     ```
 
 2. Update the following file in the web application **src/main/java/com/airport/locator/controller/LocatorController.java** by adding two additional airport data (make sure to inlcude semicolons):
@@ -55,10 +55,10 @@ This lab updates the containerized application by adding additional airports the
 
 ## Deployment
 
-1. Navigate back to the **PROJECT_ROOT/5-update-application-deployment/** from **PROJECT_ROOT/5-update-application-deployment/airport-data** directory:
+1. Navigate back to the **PROJECT_ROOT/5-update-application-deployment/** directory:
 
     ```bash
-    cd ../
+    cd aws-eks-workshop/5-update-application-deployment/
     ```
 
 2. Get updated Elastic Container Repository image to add to Kubernetes deployment in Step 3. Save output for next step:
@@ -106,7 +106,7 @@ This lab updates the containerized application by adding additional airports the
     kubectl apply -f 1-airports-deployment.yaml
     ```
 
-5. Validate deployment is healthy by viewing a total of 3 airport-data-* in Running status with recent AGE:
+5. Validate deployment is healthy by viewing a total of 3 airport-data-* that have status of "Running" and recent "Age":
 
     ```bash
     kubectl get pods
