@@ -7,56 +7,61 @@ This lab prepares environment for deploying an EKS Cluster leveraging [eksctl](h
 1. Verify you're in the correct working directory of Lab 1:
 
     ```text
-    PROJECT_ROOT/1-launching-eks-cluster/
+    cd aws-eks-workshop/1-launching-eks-cluster/
     ```
 
-2. Execute the [launch-setup.sh](./launch-setup.sh) script in your workspace:
+2. Execute the following commands in the above working directory. Skip to Step 3 if you want to automate instead:
+
+    Install eksctl to aid in creating an EKS cluster
 
     ```bash
-    chmod +x ./launch-setup.sh
-    ```
-
-    ```bash
-    ./launch-setup.sh
-    ```
-
-    ```bash
-    eksctl create cluster -f airports.yaml
-    ```
-
-    ```bash
-    kubectl get nodes
-    ```
-
-    The [launch-setup.sh](./launch-setup.sh) script accomplishes the following:
-
-    ```bash
-    # Install Eksctl for Creating Clusters
     curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
-    sudo mv -v /tmp/eksctl /usr/local/bin
-    eksctl version
-    
-    # Install Kubectl for Managing Workloads
-    sudo curl --silent --location -o /usr/local/bin/kubectl \
-    https://amazon-eks.s3.us-west-2.amazonaws.com/1.19.6/2021-01-05/bin/linux/amd64/kubectl
-    sudo chmod +x /usr/local/bin/kubectl
-    kubectl version
-    
-    # Install Helm 3 for Kubernetes Package Management
+    ```
+
+    ```bash
+    sudo mv -v /tmp/eksctl /usr/local/bin && eksctl version
+    ```
+
+    Install Kubectl for managing workloads deployed in cluster
+
+    ```bash
+    sudo curl --silent --location -o /usr/local/bin/kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.19.6/2021-01-05/bin/linux/amd64/kubectl
+    ```
+
+    ```bash
+    sudo chmod +x /usr/local/bin/kubectl && kubectl version
+    ```
+
+    Install Helm 3 for kubernetes package management
+
+    ```bash
     curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
-    
-    # Install Additional Helper Tools
-    kubectl completion bash >>  ~/.bash_completion
-    . ~/.bash_completion
-    eksctl completion bash >> ~/.bash_completion
-    . ~/.bash_completion
+    ```
+
+    Install additional helper tools
+
+    ```bash
+    kubectl completion bash >>  ~/.bash_completion && . ~/.bash_completion
+    ```
+
+    ```bash
+    eksctl completion bash >> ~/.bash_completion && . ~/.bash_completion
+    ```
+
+    ```bash  
     for command in kubectl jq envsubst aws eksctl kubectl helm
     do
         which $command &>/dev/null && echo "$command in path" || echo "$command NOT FOUND"
     done
-    
-    # Create EKS Cluster Configuration File - airports.yaml
+    ```
+
+    Create EKS cluster configuration file
+
+    ```bash
     . ~/.bash_profile
+    ```
+
+    ```bash
     cat << EOF > airports.yaml
     ---
     apiVersion: eksctl.io/v1alpha5
@@ -115,4 +120,34 @@ This lab prepares environment for deploying an EKS Cluster leveraging [eksctl](h
         wellKnownPolicies:
           imageBuilder: true
     EOF
+    ```
+
+    Create the cluster. This can take up to 20 minutes
+
+    ```bash
+    eksctl create cluster -f airports.yaml
+    ```
+
+    Make sure all nodes are operational.
+
+    ```bash
+    kubectl get nodes
+    ```
+
+3. (Optional) execute the [launch-setup.sh](./launch-setup.sh) script in your workspace only if you don't want to manually type the commands above:
+
+    ```bash
+    chmod +x ./launch-setup.sh
+    ```
+
+    ```bash
+    ./launch-setup.sh
+    ```
+
+    ```bash
+    eksctl create cluster -f airports.yaml
+    ```
+
+    ```bash
+    kubectl get nodes
     ```
