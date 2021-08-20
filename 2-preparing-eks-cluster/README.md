@@ -11,10 +11,44 @@ This lab executes the following:
 1. Verify you're in the correct working directory of Lab 2:
 
     ```text
-    PROJECT_ROOT/2-preparing-eks-cluster/
+    cd aws-eks-workshop/2-preparing-eks-cluster/
     ```
 
-2. Execute the [prepare-cluster.sh](./prepare-cluster.sh) script in your workspace:
+2. Execute the following commands in your workspace. Skip to Step 3 if you want to automate instead:
+
+    ```bash
+    export CLUSTER_NAME="airports"
+    ```
+
+    Install AWS Load Balancer Controller
+
+    ```bash
+    kubectl apply -k "github.com/aws/eks-charts/stable/aws-load-balancer-controller/crds?ref=master"
+    ```
+
+    ```bash
+    helm repo add eks https://aws.github.io/eks-charts
+    ```
+
+    ```bash
+    helm upgrade -i aws-load-balancer-controller eks/aws-load-balancer-controller \
+      -n kube-system \
+      --set clusterName=${CLUSTER_NAME} \
+      --set serviceAccount.create=false \
+      --set serviceAccount.name=aws-load-balancer-controller
+    ```
+
+    Deploy Kubernetes Dashboard
+
+    ```bash
+    export DASHBOARD_VERSION="v2.0.5"
+    ```
+
+    ```bash
+    kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/${DASHBOARD_VERSION}/aio/deploy/recommended.yaml
+    ```
+
+3. (Optional) Execute the [prepare-cluster.sh](./prepare-cluster.sh) script in your workspace:
 
     ```bash
     chmod +x ./prepare-cluster.sh
@@ -30,25 +64,6 @@ This lab executes the following:
 
     ```bash
     kubectl -n kube-system get deployments
-    ```
-
-    The [prepare-cluster.sh](./prepare-cluster.sh) script accomplishes the following:
-
-    ```bash
-    CLUSTER_NAME="airports"
-    
-    # Install AWS Load Balancer Controller
-    kubectl apply -k "github.com/aws/eks-charts/stable/aws-load-balancer-controller/crds?ref=master"
-    helm repo add eks https://aws.github.io/eks-charts
-    helm upgrade -i aws-load-balancer-controller eks/aws-load-balancer-controller \
-      -n kube-system \
-      --set clusterName=${CLUSTER_NAME} \
-      --set serviceAccount.create=false \
-      --set serviceAccount.name=aws-load-balancer-controller \
-    
-    # Deploy Kubernetes Dashboard
-    export DASHBOARD_VERSION="v2.0.5"
-    kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/${DASHBOARD_VERSION}/aio/deploy/recommended.yaml
     ```
 
 ## View Kubernetes Metrics Dashboard

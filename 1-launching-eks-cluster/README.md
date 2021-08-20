@@ -134,7 +134,7 @@ This lab prepares environment for deploying an EKS Cluster leveraging [eksctl](h
     kubectl get nodes
     ```
 
-3. (Optional) execute the [launch-setup.sh](./launch-setup.sh) script in your workspace only if you don't want to manually type the commands above:
+3. (Optional) Execute the [launch-setup.sh](./launch-setup.sh) script in your workspace only if you don't want to manually type the commands above:
 
     ```bash
     chmod +x ./launch-setup.sh
