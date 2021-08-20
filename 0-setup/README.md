@@ -50,15 +50,15 @@ This lab prepares your workspace to interact with AWS EKS by installing the requ
 
 1. Disable Cloud9 Temporary Credentials: ![role-1](./images/role-1.png)
 
-2. Create EC2 Role for EKS Workshop: 
+2. Create EC2 Role for EKS Workshop:
 
     To speed up the process, open this [link](https://console.aws.amazon.com/iam/home#/roles$new?step=review&commonUseCase=EC2%2BEC2&selectedUseCase=EC2&policies=arn:aws:iam::aws:policy%2FAdministratorAccess&roleName=EKS-Workshop) in a new tab to accept the auto-generated prompts for creating an IAM role. ![role-2](./images/role-2.png)
 
-3. Attach EC2 Role to Cloud9: 
+3. Attach EC2 Role to Cloud9:
 
-    Click Manage EC2 Instance in Cloud9 ![role-3](./images/role-3.png) 
+    Click Manage EC2 Instance in Cloud9 ![role-3](./images/role-3.png)
 
-    Click Actions -> Security -> Modify IAM Role ![role-4](./images/role-4.png) 
+    Click Actions -> Security -> Modify IAM Role ![role-4](./images/role-4.png)
 
     Attach EKS-Workshop IAM Role to Instance ![role-5](./images/role-5.png)
 
