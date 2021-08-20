@@ -38,6 +38,10 @@ This lab executes the following:
       --set serviceAccount.name=aws-load-balancer-controller
     ```
 
+    ```bash
+    kubectl logs -n kube-system deployments/aws-load-balancer-controller
+    ```
+
     Deploy Kubernetes Dashboard
 
     ```bash
@@ -60,10 +64,6 @@ This lab executes the following:
 
     ```bash
     kubectl logs -n kube-system deployments/aws-load-balancer-controller
-    ```
-
-    ```bash
-    kubectl -n kube-system get deployments
     ```
 
 ## View Kubernetes Metrics Dashboard

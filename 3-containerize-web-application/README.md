@@ -7,10 +7,39 @@ This lab securely containerizes a Java Spring Boot MVC application with Tomcat S
 1. Verify you're in the correct working directory of Lab 3:
 
     ```text
-    PROJECT_ROOT/3-containerize-web-application/
+    cd aws-eks-workshop/3-containerize-web-application/
     ```
 
-2. Execute the [containerize.sh](./containerize.sh) script in your workspace:
+2. Execute the following commands in your workspace. Skip to Step 3 if you want to automate instead:
+
+    Create Registry
+
+    ```bash
+    aws ecr create-repository \
+        --repository-name airports \
+        --image-tag-mutability IMMUTABLE \
+        --image-scanning-configuration scanOnPush=true
+    ```
+
+    Set ECR Lifecyle Policy
+
+    ```bash
+    aws ecr put-lifecycle-policy \
+        --repository-name airports \
+        --lifecycle-policy-text "file://policy.json"
+    ```
+
+    Set ECR Repository Variable
+
+    ```bash
+    ECR_REPOSITORY_URI=$(aws ecr describe-repositories | jq -r .repositories[].repositoryUri | grep airports)
+    ```
+
+    ```bash
+    echo "export ECR_REPOSITORY_URI=${ECR_REPOSITORY_URI}" >> ~/.bash_profile && echo "${ECR_REPOSITORY_URI}"
+    ```
+
+3. (Optional) Execute The [containerize.sh](./containerize.sh) script in your workspace:
 
     ```bash
     chmod +x ./containerize.sh
@@ -18,26 +47,6 @@ This lab securely containerizes a Java Spring Boot MVC application with Tomcat S
 
     ```bash
     ./containerize.sh
-    ```
-
-3. The [containerize.sh](./containerize.sh) script accomplishes the following:
-
-    ```bash
-    # Create ECR Repository
-    aws ecr create-repository \
-        --repository-name airports \
-        --image-tag-mutability IMMUTABLE \
-        --image-scanning-configuration scanOnPush=true
-    
-    # Set ECR Lifecyle Policy
-    aws ecr put-lifecycle-policy \
-        --repository-name airports \
-        --lifecycle-policy-text "file://policy.json"
-    
-    # Set ECR Repository Variable
-    ECR_REPOSITORY_URI=$(aws ecr describe-repositories | jq -r .repositories[].repositoryUri | grep -i airports)
-    echo "export ECR_REPOSITORY_URI=${ECR_REPOSITORY_URI}" >> ~/.bash_profile
-    echo "${ECR_REPOSITORY_URI}"
     ```
 
 ## Containerize Web Application
