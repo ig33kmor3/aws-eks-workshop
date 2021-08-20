@@ -66,6 +66,10 @@ This lab securely containerizes a Java Spring Boot MVC application with Tomcat S
 3. Re-tag container for upload to ECR:
 
     ```bash
+    . ~/.bash_profile
+    ```
+
+    ```bash
     docker tag airport-locator:1.0.0 "${ECR_REPOSITORY_URI}:1.0.0"
     ```
 

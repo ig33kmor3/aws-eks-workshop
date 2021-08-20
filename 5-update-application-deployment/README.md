@@ -7,7 +7,7 @@ This lab updates the containerized application by adding additional airports the
 1. Verify you're in the correct working directory of Lab 5:
 
     ```text
-    PROJECT_ROOT/5-update-application-deployment/
+    cd aws-eks-workshop/5-update-application-deployment/
     ```
 
 ## Update Containerize Web Application
@@ -32,6 +32,10 @@ This lab updates the containerized application by adding additional airports the
     ```
 
 4. Re-tag container for upload to ECR:
+
+    ```bash
+    . ~/.bash_profile
+    ```
 
     ```bash
     docker tag airport-locator:2.0.0 "${ECR_REPOSITORY_URI}:2.0.0"
@@ -111,5 +115,5 @@ This lab updates the containerized application by adding additional airports the
 6. Get newly created application load balancer URL then paste into new browser tab to view the web application:
 
    ```bash
-   aws elbv2 describe-load-balancers | jq -r ".LoadBalancers[].DNSName" | grep -i airports
+   aws elbv2 describe-load-balancers | jq -r ".LoadBalancers[].DNSName" | grep airports
    ```

@@ -11,7 +11,7 @@ This lab deploys the containerized application from ECR into the newly formed EK
 1. Verify you're in the correct working directory of Lab 4:
 
     ```text
-    PROJECT_ROOT/4-deploying-application-into-eks/
+    cd aws-eks-workshop/4-deploying-application-into-eks/
     ```
 
 2. Get Elastic Container Repository image to add to Kubernetes deployment in Step 3. Save output for next step:
@@ -20,7 +20,7 @@ This lab deploys the containerized application from ECR into the newly formed EK
     echo "${ECR_REPOSITORY_URI}:1.0.0"
     ```
 
-3. Add the Elastic Container Repository image from Step 2 to the image field location (REPLACE_ME) in [1-airports-deployment.yaml](./1-airports-deployment.yaml) in text editor:
+3. Add the Elastic Container Repository image from Step 2 to the image field location (REPLACE_ME) in [1-airports-deployment.yaml](./1-airports-deployment.yaml) in Cloud9 text editor:
 
     ```yaml
     apiVersion: apps/v1
@@ -80,7 +80,7 @@ This lab deploys the containerized application from ECR into the newly formed EK
 8. Get newly created application load balancer URL then paste into new browser tab to view the web application:
 
    ```bash
-   aws elbv2 describe-load-balancers | jq -r ".LoadBalancers[].DNSName" | grep -i airports
+   aws elbv2 describe-load-balancers | jq -r ".LoadBalancers[].DNSName" | grep airports
    ```
 
    ![web-deployed](./images/web-deployed.png)
