@@ -15,7 +15,7 @@ This lab updates the containerized application by adding additional airports the
 1. Navigate to the **airports-data** directory:
 
     ```bash
-    cd aws-eks-workshop/5-update-application-deployment/airport-data/
+    cd aws-eks-workshop/5-update-application-deployment/airplane-data/
     ```
 
 2. Update the following file in the web application **src/main/java/com/airport/locator/controller/LocatorController.java** by adding two additional airport data (make sure to inlcude semicolons):
