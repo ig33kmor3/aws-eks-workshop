@@ -45,7 +45,7 @@ This lab executes the following:
     Deploy Kubernetes Dashboard
 
     ```bash
-    export DASHBOARD_VERSION="v2.0.5"
+    export DASHBOARD_VERSION="v2.0.0"
     ```
 
     ```bash
