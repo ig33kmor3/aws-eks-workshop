@@ -54,7 +54,7 @@ This lab securely containerizes a Java Spring Boot MVC application with Tomcat S
 1. Navigate to the **airports-data** directory:
 
     ```bash
-    cd airport-data/
+    cd airplane-data/
     ```
 
 2. Build container image by running the following command in the root of this project folder:
